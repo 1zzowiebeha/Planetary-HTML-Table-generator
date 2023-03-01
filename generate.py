@@ -45,7 +45,7 @@ def generateTagsFromData(input_f: str, output_f: str) -> None:
                 # if there is a string,
                 if len(end_string) != 0:
                     joined_str = ' '.join(end_string).rstrip() # join word list with space deliminator
-                    out_obj.write(f"<th>{joined_str}</th>\n")
+                    out_obj.write(f"<td>{joined_str}</td>\n")
 
     print("Generated HTML output!")
             
