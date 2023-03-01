@@ -5,7 +5,7 @@ output_name = r"html\Table Basics\Final assessment\output.txt"
 
 # Troubleshooting
 #   If your relative file-paths don't work, make a virtual environment, and 
-#       .. check os.listdir() to find the directory the program 
+#       .. check os.listdir() to find the working directory
 ####
 
 def generateTagsFromData(input_f: str, output_f: str) -> None:
