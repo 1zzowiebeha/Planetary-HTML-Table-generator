@@ -21,7 +21,6 @@ def generateTagsFromData(input_f: str, output_f: str) -> None:
             
         Data Input:
             header 0.0 0.0 0.0 0.0 0.0 0.0 (optional) String of words
-
         Data Output:
             <th>header</th><td>0.0</td> ... <td>String of words</td>
     """
@@ -38,14 +37,16 @@ def generateTagsFromData(input_f: str, output_f: str) -> None:
                 end_string = data_values[9:]  # grab end string words
                 
                 # write
-                out_obj.write(f"<th>{header}</th>\n")
+                out_obj.write("<tr>\n")
+                out_obj.write(f"\t<th>{header}</th>\n")
                 for data in floats:
-                    out_obj.write(f"<td>{data.rstrip()}</td>\n") # .rstrip() removes existing line-ending
+                    out_obj.write(f"\t<td>{data.rstrip()}</td>\n") # .rstrip() removes existing line-ending
                     
                 # if there is a string,
                 if len(end_string) != 0:
                     joined_str = ' '.join(end_string).rstrip() # join word list with space deliminator
-                    out_obj.write(f"<td>{joined_str}</td>\n")
+                    out_obj.write(f"\t<td>{joined_str}</td>\n")
+                out_obj.write("</tr>\n")
 
     print("Generated HTML output!")
             
