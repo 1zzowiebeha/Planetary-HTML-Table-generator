@@ -1,6 +1,6 @@
 # Settings
-input_name = r"html\Table Basics\Final assessment\pure.txt"
-output_name = r"html\Table Basics\Final assessment\output.txt"
+INPUT_NAME = r"html\Table Basics\Final assessment\pure.txt"
+OUTPUT_NAME = r"html\Table Basics\Final assessment\output.txt"
 ####
 
 # Troubleshooting
@@ -49,10 +49,12 @@ def generateTagsFromData(input_f: str, output_f: str) -> None:
                 out_obj.write("</tr>\n")
 
     print("Generated HTML output!")
-            
+
+
 def main() -> None:
     #print(os.listdir())
-    generateTagsFromData(input_name, output_name) 
+    generateTagsFromData(INPUT_NAME, OUTPUT_NAME) 
+
 
 if __name__ == "__main__":
     main()
