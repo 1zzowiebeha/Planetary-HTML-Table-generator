@@ -1,6 +1,6 @@
 # Settings
-INPUT_NAME = r"html\Table Basics\Final assessment\pure.txt"
-OUTPUT_NAME = r"html\Table Basics\Final assessment\output.txt"
+INPUT_DATA_FILEPATH = r"html\Table Basics\Final assessment\data.txt"
+OUTPUT_HTML_PARTIAL_FILEPATH = r"html\Table Basics\Final assessment\partial.html"
 ####
 
 # Troubleshooting
@@ -25,26 +25,26 @@ def generateTagsFromData(input_f: str, output_f: str) -> None:
             <th>header</th><td>0.0</td> ... <td>String of words</td>
     """
        
-    data_values: list # unassigned variable
+    data_values: list # Typed unassigned variable
 
     with open(input_f, 'r') as in_obj:
         with open(output_f, 'w') as out_obj:
             for line in in_obj.readlines():
-                data_values = line.split(" ") # split along " "
+                data_values = line.split(" ") # Split along " "
                 
-                header = data_values[0]       # grab header
-                floats = data_values[1:9]     # grab floats
-                end_string = data_values[9:]  # grab end string words
+                header = data_values[0]       # Grab header
+                floats = data_values[1:9]     # Grab data floats
+                end_string = data_values[9:]  # Grab end string words (notes field)
                 
-                # write
+                # Write to partial file
                 out_obj.write("<tr>\n")
                 out_obj.write(f"\t<th>{header}</th>\n")
                 for data in floats:
                     out_obj.write(f"\t<td>{data.rstrip()}</td>\n") # .rstrip() removes existing line-ending
                     
-                # if there is a string,
+                # If there is a string, ...
                 if len(end_string) != 0:
-                    joined_str = ' '.join(end_string).rstrip() # join word list with space deliminator
+                    joined_str = ' '.join(end_string).rstrip() # ... join word list with space deliminator.
                     out_obj.write(f"\t<td>{joined_str}</td>\n")
                 out_obj.write("</tr>\n")
 
@@ -53,7 +53,7 @@ def generateTagsFromData(input_f: str, output_f: str) -> None:
 
 def main() -> None:
     #print(os.listdir())
-    generateTagsFromData(INPUT_NAME, OUTPUT_NAME) 
+    generateTagsFromData(INPUT_DATA_FILEPATH, OUTPUT_HTML_PARTIAL_FILEPATH) 
 
 
 if __name__ == "__main__":
