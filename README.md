@@ -1,6 +1,6 @@
 # Planetary-HTML-Table-generator
 
-## Input data:
+## Input data file:
 
 ![image](https://github.com/user-attachments/assets/77ffec5d-baf4-41f7-af5b-c2c780caea04)
 
@@ -12,5 +12,29 @@
 
 Adapted from MDN's [accessible table example](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Planet_data_table).
 
-Takes a data file containing planetary data such as name, density, distance from the sun, etc.
+Takes a data file containing planetary data such as name, mass, density, distance from the sun, etc.
 and converts it into a highly semantic HTML table for data visualization.
+
+## Development
+
+### 0. Generate HTML from data.txt
+
+To generate the full HTML page in /public/, run
+
+`python generate.py`
+
+### 1. Install Dart Sass executable through NPM
+`npm -i global install sass-embedded`
+
+### 2. Compile SASS to CSS in real-time
+
+From repository's root dir:
+
+`sass --watch src/styles:public/styles`
+
+ ❗Note: `/src/styles/` file deletions may not reflect in `/public/styles/`
+use a build tool or NPM scripts for a better watch mechanism
+
+### 3. Live CSS updates in the browser
+
+Use a LiveServer mechanism like VSCode's LiveServer to view your changes in real-time
