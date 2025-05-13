@@ -1,4 +1,6 @@
-# Planetary-HTML-Table-generator
+# Planetary Data Static Site Generator
+
+❗In heavy development. Some things may be broken..
 
 ## Input data file:
 
