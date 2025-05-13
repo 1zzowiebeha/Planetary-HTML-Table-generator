@@ -15,26 +15,35 @@ Adapted from MDN's [accessible table example](https://developer.mozilla.org/en-U
 Takes a data file containing planetary data such as name, mass, density, distance from the sun, etc.
 and converts it into a highly semantic HTML table for data visualization.
 
+Tech stack:
+* Python, Sass, HTML, CSS
+
+
 ## Development
 
+Python v3.9+ is required to execute the script.
+
 ### 0. Generate HTML from data.txt
+To generate the HTML page to /public/ run the following from the repo's root directory:
 
-To generate the full HTML page in /public/, run
+`python src/generate.py`
 
-`python generate.py`
-
-### 1. Install Dart Sass executable through NPM
+### 1. Install the Dart Sass executable through NPM
 `npm -i global install sass-embedded`
 
-### 2. Compile SASS to CSS in real-time
+If something goes wrong, consult Node's download page:
 
-From repository's root dir:
+https://nodejs.org/en/download
+
+### 2. Compile SCSS to CSS in real-time
+From the repository's root dir, run:
 
 `sass --watch src/styles:public/styles`
 
- ❗Note: `/src/styles/` file deletions may not reflect in `/public/styles/`
-use a build tool or NPM scripts for a better watch mechanism
+ ❗Note: `/src/styles/` file deletions may not reflect in `/public/styles/`.
+ 
+Use a build tool or NPM scripts for a better watch mechanism: https://www.youtube.com/watch?v=o4cECvhrBo8
+
 
 ### 3. Live CSS updates in the browser
-
 Use a LiveServer mechanism like VSCode's LiveServer to view your changes in real-time
