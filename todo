@@ -4,3 +4,9 @@ Fix broken table styling at small screen sizes
 Fix Python Table generator
     Render <tbody> contents and output directly to /public/,
     ... without an interim under /templates/partials/.
+    
+Add testing via pytest
+
+Take data from a SQLite database
+    Or maybe a document DB given that there's no relationships
+    ... other than headings.
