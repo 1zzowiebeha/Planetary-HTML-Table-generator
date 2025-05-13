@@ -1,5 +1,7 @@
-Fix broken table styling at small screen sizes
-    CSS Grid to the rescue!
+In order of priority...
+-----------------------
+
+Solve subscript error
 
 Fix Python Table generator
     Render <tbody> contents and output directly to /public/,
@@ -7,6 +9,13 @@ Fix Python Table generator
     
 Add testing via pytest
 
+Fix XSS
+
+Fix broken table styling at small screen sizes
+    CSS Grid to the rescue!
+    
 Take data from a SQLite database
     Or maybe a document DB given that there's no relationships
     ... other than headings.
+
+Fix pseudo-element underline bug when links wrap
