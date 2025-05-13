@@ -1,0 +1,64 @@
+@use "index_variables";
+@use "sass:color";
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    padding: 2rem;
+    background: #F6F5EE;
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url("../assets/font-poppins/Poppins-Medium.ttf") format('truetype');
+}
+
+p, h1, th, td, caption {
+    font-family: "Poppins-Medium";
+}
+
+caption {
+    font-size: 1rem;
+}
+
+/* bug: pseudo-element breaks for wrapped links */
+a {
+    text-decoration: none;
+    position: relative;
+    color: #0f0fee;
+    
+    transition: .6s color;
+    &:hover {
+        color: #2a2aee;
+    }
+    
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background: #0f0fee;
+        transition: .3s width;
+    }
+    &:hover::after {
+        width: 100%;
+    }
+}
+
+table *::selection {
+    color: color.adjust(
+        index_variables.$bg-color,
+        $red: -10, $green: -10, $blue: -10
+    );
+    background-color: #2981da;
+}
