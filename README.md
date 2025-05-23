@@ -9,7 +9,7 @@
 
 ## Output HTML:
 
-![firefox_qx1SRvyEsu](https://github.com/user-attachments/assets/47d0f2d3-1f98-4b18-8392-62c7c035dbe8)
+![image](https://github.com/user-attachments/assets/256c605d-e111-46e8-ad26-f5ff10e6a22d)
 
 
 ## About:
