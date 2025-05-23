@@ -7,8 +7,8 @@ In order of priority...
     Render <tbody> contents and output directly to /public/,
     ... without an interim under /templates/partials/.
 
-Keep README changes and code changes in separate commits
-Use `git squash` to keep beautiful git history
+✅ Keep README changes and code changes in separate commits
+✅ Use `git squash` to keep beautiful git history
 
 Add testing via pytest
 
