@@ -15,6 +15,8 @@ Add testing via pytest
 Add a CI/CD pipeline to include pytest, mypy|pytype|pyright|pylance|pyre
     https://www.infoworld.com/article/2260170/4-python-type-checkers-to-keep-your-code-clean.html
 
+Add a test coverage badge for the README
+
 Fix XSS
 
 Fix broken table styling at small screen sizes
