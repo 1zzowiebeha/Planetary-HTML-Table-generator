@@ -1,21 +1,32 @@
 In order of priority...
 -----------------------
 
-Solve subscript error
+✅ Solve subscript error
 
-Fix Python Table generator
+✅ Fix Python Table generator
     Render <tbody> contents and output directly to /public/,
     ... without an interim under /templates/partials/.
-    
+
+Keep README changes and code changes in separate commits
+Use `git squash` to keep beautiful git history
+
 Add testing via pytest
+
+Add a CI/CD pipeline to include pytest, mypy|pytype|pyright|pylance|pyre
+    https://www.infoworld.com/article/2260170/4-python-type-checkers-to-keep-your-code-clean.html
 
 Fix XSS
 
 Fix broken table styling at small screen sizes
     CSS Grid to the rescue!
     
+    For the time being,
+    Create fixed-width scrollable overflow table on mobile
+
 Take data from a SQLite database
     Or maybe a document DB given that there's no relationships
     ... other than headings.
 
 Fix pseudo-element underline bug when links wrap
+
+Prettify rendered table body with tabs to maintain HTML document formatting
