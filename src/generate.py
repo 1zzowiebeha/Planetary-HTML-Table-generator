@@ -45,7 +45,7 @@ class Template:
         return html_contents.format(**context_data)
 
     @classmethod
-    def get_template(cls, template_name: str) -> Self:
+    def get_template(cls: Self, template_name: str) -> Self:
         """Return a template class made via the passed template name.
         Will recursively search the templates dir until the first occurence of
         <template_name>.html is found. Will raise an error if nothing is found."""
@@ -58,10 +58,12 @@ class Template:
         
         raise TemplateNotFoundException(f"Could not find template {template_name} in src/templates/")
 
+
 def minify(html_contents: str) -> str:
     """Remove newlines from the HTML"""
     # todo
     return html_contents
+
 
 def generateTableBody(data_filepath: str) -> str:
     """Produces table body tags from a data file.
