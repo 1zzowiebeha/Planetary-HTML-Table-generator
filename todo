@@ -29,4 +29,4 @@ Take data from a SQLite database
 
 Fix pseudo-element underline bug when links wrap
 
-Prettify rendered table body with tabs to maintain HTML document formatting
+Prettify rendered HTML with tabs before/after write to maintain HTML document formatting
