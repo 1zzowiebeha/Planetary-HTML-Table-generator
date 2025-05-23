@@ -1,6 +1,6 @@
 # Planetary Data Static Site Generator
 
-❗In heavy development.
+❗ In heavy development.
 
 ## Input data file:
 
@@ -44,7 +44,7 @@ From the repository's root dir, run:
 
 `sass --watch src/styles:public/styles`
 
- ❗Note: `/src/styles/` file deletions may not reflect in `/public/styles/`.
+ ❗ Note: `/src/styles/` file deletions may not reflect in `/public/styles/`.
  
 Use a build tool or NPM scripts for a better watch mechanism: https://www.youtube.com/watch?v=o4cECvhrBo8
 
@@ -52,13 +52,13 @@ Use a build tool or NPM scripts for a better watch mechanism: https://www.youtub
 Use a LiveServer mechanism like VSCode's LiveServer to view your changes in real-time
 
 
-## Troubleshooting
+## VSCode Troubleshooting
 
-If you have a compatible version of Python installed and receive the following error,
+If you have a compatible version of Python installed and receive the following error, 
 
-`TypeError: 'type' object is not subscriptable`,
+`TypeError: 'type' object is not subscriptable`
 
 then your current workspace Python interpreter is set to an outdated version.
 
-To resolve this, open the command pallet, execute "Python: Select Interpreter",
+To resolve this, open the command pallet, execute `Python: Select Interpreter`,
 select this repository's VSCode Workspace, and choose a compatible version.
