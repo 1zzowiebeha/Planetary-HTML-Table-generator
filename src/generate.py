@@ -111,7 +111,8 @@ def generateTableBody(data_filepath: str) -> str:
                 tbody_contents += f"\t<td>{joined_str}</td>\n"
             tbody_contents += "</tr>\n"
     
-    # account for nothing in data file
+    if not tbody_contents:
+        raise Exception("No data present in file supplied.")
     
     return tbody_contents
 
