@@ -15,12 +15,7 @@ INPUT_DATA_PATH = os.path.join(BASE_DIR, INPUT_DATA_FILENAME)
 ROOT_DIR = os.path.join(BASE_DIR, "..")
 OUTPUT_PATH = os.path.join(ROOT_DIR, OUTPUT_DIR)
 
-####################
-# Troubleshooting: #
-####################
-#   If your relative file-paths don't work, make a virtual environment, and 
-#       .. check os.listdir() to find the working directory
-####################
+############
 
 class TemplateNotFoundException(Exception):
     pass
