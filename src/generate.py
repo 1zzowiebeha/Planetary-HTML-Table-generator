@@ -1,9 +1,19 @@
 import os
+import warnings
 from typing import Self
 
 ############
 # Settings #
 ############
+
+# A single "\" at the end of a docstring line
+# ... will ignore its implicit newline.
+
+WELCOME_MESSAGE = """
+#################################
+    Planetary HTML Table Generator
+#################################
+"""
 
 INPUT_DATA_FILENAME = "data.txt"
 OUTPUT_DIR = "public"
@@ -55,8 +65,9 @@ class Template:
 
 
 def minify(html_contents: str) -> str:
-    """Remove newlines from the HTML"""
-    # todo
+    """Remove newlines from the HTML."""
+    warnings.warn("Minification is yet to be implemented.")
+    
     return html_contents
 
 
@@ -117,4 +128,9 @@ def publish_tabular_data():
         
 
 if __name__ == "__main__":
+    print(WELCOME_MESSAGE)
+    print("Publishing to /public/...\n")
+    
     publish_tabular_data() 
+
+    print("\nFinished.")
