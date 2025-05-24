@@ -33,6 +33,7 @@ class TemplateNotFoundException(Exception):
 
 class Template:
     """A static HTML page with dynamic data insertion capability."""
+    
     def __init__(self, template_path: str):
         self.template_path = template_path
         
@@ -44,15 +45,18 @@ class Template:
             return file_object.read()
 
     def render(self, context_data: dict[str, str]) -> str:
-        """Populate a template's unfilled variables with context data."""
+        """Populate a template's unfilled format variables with context data."""
         html_contents = self.get_contents()
         
         return html_contents.format(**context_data)
 
+    # If we create subclasses from this Template,
+    # ... we may need a get_template() mixin to properly annotate
+    # ... the cls type as Template.
     @classmethod
     def get_template(cls: Self, template_name: str) -> Self:
-        """Return a template class made via the passed template name.
-        Will recursively search the templates dir until the first occurence of
+        """Return a template class created via the passed template name.
+        Recursively searches the /src/templates/ dir until the first occurence of
         <template_name>.html is found. Will raise an error if nothing is found."""
         
         template_file_name = f"{template_name}.html"
@@ -65,17 +69,17 @@ class Template:
 
 
 def minify(html_contents: str) -> str:
-    """Remove newlines from the HTML."""
+    """Remove whitespace and newlines from the HTML."""
     warnings.warn("Minification is yet to be implemented.")
     
     return html_contents
 
 
 def generateTableBody(data_filepath: str) -> str:
-    """Produces table body tags from a data file.
-            
+    """Produces a string of <th> and <td> tags from the passed data file.
+    
         Data Input:
-            header 0.0 0.0 0.0 0.0 0.0 0.0 (optional) String of words
+            header 0.0 0.0 0.0 0.0 0.0 0.0 [optional: String of words]
         Data Output:
             <th>header</th><td>0.0</td> ... <td>String of words</td>
     """
@@ -109,7 +113,7 @@ def generateTableBody(data_filepath: str) -> str:
 
 def publish_tabular_data():
     """Generate, render, and write planetary data
-    to an HTML file."""
+    to an HTML file under /public/."""
     
     # bug: Protect against XSS
     table_body = generateTableBody(INPUT_DATA_PATH)
