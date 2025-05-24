@@ -34,10 +34,11 @@ class TemplateNotFoundException(Exception):
 class Template:
     """A static HTML page with dynamic data insertion capability."""
     
-    def __init__(self, template_path: str):
-        self.template_path = template_path
+    # Python's __init__ return type is controversial.
+    def __init__(self, template_path: str) -> None:
+        self.template_path: str = template_path
         
-        self.fullname = os.path.basename(template_path)
+        self.fullname: str = os.path.basename(template_path)
 
     def get_contents(self) -> str:
         """Return the HTML contents of a template file as a string."""
@@ -86,8 +87,8 @@ def generateTableBody(data_filepath: str) -> str:
         Data Output:
             <th>header</th><td>0.0</td> ... <td>A string of words</td>
     """
-       
-    tbody_contents = ""
+    
+    tbody_contents: str = ""
 
     with open(data_filepath, 'r') as file_object:
         for line in file_object.readlines():
@@ -117,7 +118,7 @@ def generateTableBody(data_filepath: str) -> str:
     return tbody_contents
 
 
-def publish_tabular_data():
+def publish_tabular_data() -> None:
     """Generate, render, and write planetary data
     to an HTML file under /public/."""
     
