@@ -76,33 +76,38 @@ def minify(html_contents: str) -> str:
 
 
 def generateTableBody(data_filepath: str) -> str:
-    """Produces a string of <th> and <td> tags from the passed data file.
+    """Produce a string of <th> and <td> tags from the passed data file.
     
+        Expects the data input file to positionally contain:
+            1 header string, 8 floats, and an optional string of space-separated words.
+        
         Data Input:
-            header 0.0 0.0 0.0 0.0 0.0 0.0 [optional: String of words]
+            header 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 [optional: Space-separated words]
         Data Output:
-            <th>header</th><td>0.0</td> ... <td>String of words</td>
+            <th>header</th><td>0.0</td> ... <td>A string of words</td>
     """
        
     tbody_contents = ""
 
     with open(data_filepath, 'r') as file_object:
         for line in file_object.readlines():
-            data_values: list[str] = line.split(" ") # Split along " "
+            data_values: list[str] = line.split(" ")
             
             header: str = data_values[0]             # Grab table header
-            floats: list[str] = data_values[1:9]     # Grab data floats
+            floats: list[str] = data_values[1:9]     # Grab the 8 data floats
             end_string: list[str] = data_values[9:]  # Grab end string words (notes field)
             
             # Write to HTML partial buffer
             tbody_contents += ("<tr>\n")
             tbody_contents += f"\t<th>{header}</th>\n"
             for datum in floats:
-                tbody_contents += f"\t<td>{datum.rstrip()}</td>\n" # .rstrip() removes line's newline
-                
-            # If there is ending note field data:
+                # .rstrip() removes the implicit newline
+                tbody_contents += f"\t<td>{datum.rstrip()}</td>\n"
+            
+            # If there are words within the notes field list:
             if len(end_string) != 0:
-                joined_str = ' '.join(end_string).rstrip() # ... join word list with space deliminator.
+                # Join word list with space deliminator.
+                joined_str = ' '.join(end_string).rstrip()
                 tbody_contents += f"\t<td>{joined_str}</td>\n"
             tbody_contents += "</tr>\n"
     
@@ -115,18 +120,17 @@ def publish_tabular_data():
     """Generate, render, and write planetary data
     to an HTML file under /public/."""
     
-    # bug: Protect against XSS
-    table_body = generateTableBody(INPUT_DATA_PATH)
+    table_body: str = generateTableBody(INPUT_DATA_PATH)
     
     context = {
         "table_body": table_body
     }
     
-    template = Template.get_template("data_visualized")
-    rendered_html = template.render(context)
-    minified_html = minify(rendered_html)
+    template: Template = Template.get_template("data_visualized")
+    rendered_html: str = template.render(context)
+    minified_html: str = minify(rendered_html)
     
-    output_filepath = os.path.join(OUTPUT_PATH, template.fullname)
+    output_filepath: str = os.path.join(OUTPUT_PATH, template.fullname)
     with open(output_filepath, "w") as file_object:
         file_object.write(minified_html)
         
