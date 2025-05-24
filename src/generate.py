@@ -121,10 +121,5 @@ def publish_tabular_data():
         file_object.write(minified_html)
         
 
-def main() -> None:
-    """Entry point of the program."""
-    publish_tabular_data() 
-
-
 if __name__ == "__main__":
-    main()
+    publish_tabular_data() 
